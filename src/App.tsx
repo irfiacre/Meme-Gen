@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from '@lynx-js/react'
 
 import './App.css'
-import arrow from './assets/arrow.png'
-import lynxLogo from './assets/lynx-logo.png'
-import reactLynxLogo from './assets/react-logo.png'
+import HeaderComponent from './components/HeaderComponent.jsx'
+import PreviewScreen from './components/PreviewScreen.jsx'
 
 export function App() {
   const [alterLogo, setAlterLogo] = useState(false)
@@ -18,28 +17,10 @@ export function App() {
   }, [alterLogo])
 
   return (
-    <view>
-      <view className='Background' />
-      <view className='App'>
-        <view className='Banner'>
-          <view className='p-2' bindtap={onTap}>
-            {alterLogo
-              ? <image src={reactLynxLogo} className='Logo--react' />
-              : <image src={lynxLogo} className='Logo--lynx' />}
-          </view>
-          <text className='Title'>React</text>
-          <text className='Subtitle'>Not on Lynx</text>
-        </view>
-        <view className='Content'>
-          <image src={arrow} className='Arrow' />
-          <text className='Description'>Tap the logo and have fun!</text>
-          <text className='Hint'>
-            Edit<text style={{ fontStyle: 'italic' }}>{' src/App.tsx '}</text>
-            to see updates!
-          </text>
-        </view>
-        <view style={{ flex: 1 }}></view>
-      </view>
+    <view className="container">
+      <HeaderComponent title="MEME Gen"/>
+      <br />
+      <PreviewScreen />
     </view>
   )
 }
